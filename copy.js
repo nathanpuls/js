@@ -1,6 +1,12 @@
-function copyToClipboard() {
-    // Get the input element
-    var copyInput = document.getElementById("copyInput");
+function copyToClipboard(inputId) {
+    // Get the input element using the provided ID
+    var copyInput = document.getElementById(inputId);
+
+    // Check if the input element exists
+    if (!copyInput) {
+        console.error("Input element not found with ID: " + inputId);
+        return;
+    }
 
     // Select the text in the input
     copyInput.select();
@@ -13,5 +19,5 @@ function copyToClipboard() {
     copyInput.blur();
 
     // Optionally, provide feedback to the user (you can customize this)
-    alert("Text copied to clipboard: " + copyInput.value);
+    alert("Copied: " + copyInput.value);
 }
